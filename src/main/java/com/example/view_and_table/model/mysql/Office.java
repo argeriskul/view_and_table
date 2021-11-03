@@ -13,7 +13,7 @@ public class Office {
     @Id
     @Column
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @Column
     private String name;

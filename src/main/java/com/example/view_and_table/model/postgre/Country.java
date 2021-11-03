@@ -3,10 +3,7 @@ package com.example.view_and_table.model.postgre;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -14,8 +11,8 @@ import javax.persistence.Id;
 public class Country {
     @Id
     @Column
-    @GeneratedValue
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "country_name")
     private String name;

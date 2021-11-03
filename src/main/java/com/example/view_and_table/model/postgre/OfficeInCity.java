@@ -1,30 +1,25 @@
 package com.example.view_and_table.model.postgre;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
+@Table(name="city_office")
 @Data
 @NoArgsConstructor
-public class City {
+@AllArgsConstructor
+public class OfficeInCity {
 
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    @NonNull
-    private String name;
-
     @ManyToOne
-    @JoinColumn(name = "country")
-    private Country country;
+    private City city;
 
-    @Column(name = "active")
-    private LocalDateTime lastActive;
+    @Column
+    private String name;
 }
