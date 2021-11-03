@@ -3,6 +3,7 @@ package com.example.view_and_table.service;
 import com.example.view_and_table.data.postgre.CityRepository;
 import com.example.view_and_table.model.mysql.Office;
 import com.example.view_and_table.model.postgre.City;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
+@Slf4j
 public class CityService {
 
     @Autowired
@@ -38,6 +40,7 @@ public class CityService {
         cityList.forEach(it->{
             City city = repo.findFirstByName(it);
             city.setLastActive(LocalDateTime.now());
+            result.add(city);
         });
         return result;
     }
